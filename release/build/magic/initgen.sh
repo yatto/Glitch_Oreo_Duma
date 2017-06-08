@@ -65,18 +65,15 @@ null="abc"
 if [ "$PERMISSIVE" == "1" ]; then
   echo "cmdline = console=ttyHSL0,115200,n8 androidboot.hardware=msm8960 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=340M enforcing=0 androidboot.selinux=permissive" $l2_opt $vdd_uv $null >> /tmp/cmdline.cfg
 else
-<<<<<<< HEAD
+
   echo "cmdline = console=ttyHSL0,115200,n8 androidboot.hardware=msm8960 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=340M enforcing=1 androidboot.selinux=enforcing" $l2_opt $vdd_uv $null >> /tmp/cmdline.cfg
-=======
-  echo "cmdline = console=ttyHSL0,115200,n8 androidboot.hardware=msm8960 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=340M" $l2_opt $vdd_uv $null >> /tmp/cmdline.cfg
->>>>>>> bd53eb9557c81858d1b1ade67efe7af57c0b8bab
 fi
 
 ####################################################################
 
 echo "on early-init" >> $INIT
 echo "" >> $INIT
-echo "write /sys/class/graphics/fb0/rgb \"32768 32768 32768\"" >> $INIT
+##### DUMA Does not need this...  echo "write /sys/class/graphics/fb0/rgb \"32768 32768 32768\"" >> $INIT
 echo "" >> $INIT
 echo "on boot" >> $INIT
 echo "" >> $INIT

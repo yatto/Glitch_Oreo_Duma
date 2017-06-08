@@ -94,13 +94,6 @@ if [ $(grep -c "service synapse" /tmp/ramdisk/init.rc) == 0 ]; then
    echo "    oneshot" >> /tmp/ramdisk/init.rc
 fi
 
-<<<<<<< HEAD
-#remove governor overrides, use kernel default
-sed -i '/\/sys\/devices\/system\/cpu\/cpu0\/cpufreq\/scaling_governor/d' /tmp/ramdisk/init.msm8960.rc
-sed -i '/\/sys\/devices\/system\/cpu\/cpu1\/cpufreq\/scaling_governor/d' /tmp/ramdisk/init.msm8960.rc
-sed -i '/\/sys\/devices\/system\/cpu\/cpu2\/cpufreq\/scaling_governor/d' /tmp/ramdisk/init.msm8960.rc
-sed -i '/\/sys\/devices\/system\/cpu\/cpu3\/cpufreq\/scaling_governor/d' /tmp/ramdisk/init.msm8960.rc
-=======
 #Restart GMS to fix memory leak and battery drain
 if [ $(grep -c "service glitch" /tmp/ramdisk/init.rc) == 0 ]; then
    echo "" >> /tmp/ramdisk/init.rc
@@ -112,7 +105,6 @@ if [ $(grep -c "service glitch" /tmp/ramdisk/init.rc) == 0 ]; then
    echo "    disabled" >> /tmp/ramdisk/init.rc
    echo "    oneshot" >> /tmp/ramdisk/init.rc
 fi
->>>>>>> bd53eb9557c81858d1b1ade67efe7af57c0b8bab
 
 #restore fstab backup if any to prevent overwriting the original with the backup coming next
 if [ -f "/tmp/ramdisk/fstab.orig" ]; then
